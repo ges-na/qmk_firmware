@@ -64,15 +64,12 @@ enum sofle_layers {
     _QWERTY = 0,
     _LOWER,
     _RAISE
-    /* _ADJUST, */
-    /* _SWITCH */
 };
 
 enum custom_keycodes {
     KC_QWERTY = SAFE_RANGE,
     KC_LOWER,
     KC_RAISE,
-    /* KC_ADJUST, */
     KC_D_MUTE
 };
 
@@ -160,126 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               _______, _______, _______, _______, _______,   _______, _______,  KC_P0,   KC_PDOT, _______
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
-/* ADJUST
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | RESET|      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |RGB_TOG|hue^ |sat ^ | bri ^|      |      |-------.   ,-------|desk <|      |      |desk >|      |      |
- * |------+------+------+------+------+------|  MUTE |    | PrScn |------+------+------+------+------+------|
- * | mode | hue dn|sat d|bri dn|SWITCH|      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LOWER | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
- *            `----------------------------------'           '------''---------------------------'
- */
-/*   [_ADJUST] = LAYOUT( */
-/*   //,------------------------------------------------.                    ,---------------------------------------------------. */
-/*   EEP_RST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, */
-/*   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------| */
-/*   RESET,   XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, */
-/*   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------| */
-/*   RGB_TOG, RGB_HUI,RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,             C(G(KC_LEFT)),KC_NO,KC_NO,C(G(KC_RGHT)),XXXXXXX, XXXXXXX, */
-/*   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------| */
-/*   RGB_MOD, RGB_HUD,RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,XXXXXXX,   XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, */
-/*   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------| */
-/*                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______ */
-/*     //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/ */
-/* ), */
-/* SWITCH
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | qwer | low  | raise| adj  |      |      |                    |      |      |      |      |      |RESET |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      |      |      |      |      |EEP_RST|
- * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | SLEEP|      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | Bspc | WIN  |LOWER | Enter| /Space  /       \Enter \  |SPACE | 0    |  .   | RAlt |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
- *            `----------------------------------'           '------''---------------------------'
- */
-  // layer switcher
-/* [_SWITCH] = LAYOUT( */
-/*   //,------------------------------------------------.                    ,---------------------------------------------------. */
-/*   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, */
-/*   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------| */
-/*   TO(0),   TO(1),   TO(2),   TO(3),   TO(4),   KC_NO,    		   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   RESET, */
-/*   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------| */
-/*   KC_NO,   KC_NO, KC_BRIU,   KC_NO,   KC_NO,   KC_NO,                      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   EEP_RST, */
-/*   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------| */
-/*   KC_SYSTEM_SLEEP,KC_NO,KC_NO,KC_NO,  KC_NO,   KC_NO, KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, */
-/*   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------| */
-/*                   KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO */
-/*   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/ */
-/**/
-/* 	), */
 };
-
-#ifdef RGBLIGHT_ENABLE
-char layer_state_str[70];
-// Now define the array of layers. Later layers take precedence
-
-// QWERTY,
-// Light on inner column and underglow
-const rgblight_segment_t PROGMEM layer_qwerty_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_LAYER_ID(HSV_RED)
-
-);
-
-// _NUM,
-// Light on outer column and underglow
-const rgblight_segment_t PROGMEM layer_num_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-	SET_LAYER_ID(HSV_TEAL)
-
-);
-// _SYMBOL,
-// Light on inner column and underglow
-const rgblight_segment_t PROGMEM layer_symbol_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-	SET_LAYER_ID(HSV_BLUE)
-
-    );
-// _COMMAND,
-// Light on inner column and underglow
-const rgblight_segment_t PROGMEM layer_command_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_LAYER_ID(HSV_PURPLE)
-);
-
-// _SWITCHER   // light up top row
-/* const rgblight_segment_t PROGMEM layer_switcher_lights[] = RGBLIGHT_LAYER_SEGMENTS( */
-/* 	SET_LAYER_ID(HSV_GREEN), */
-/* 	SET_NUMROW(HSV_GREEN) */
-/* ); */
-
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-
-    layer_qwerty_lights,
-	layer_num_lights,// overrides layer 1
-	layer_symbol_lights,
-    layer_command_lights,
-	layer_switcher_lights,  // Overrides other layers
-);
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-	rgblight_set_layer_state(0, layer_state_cmp(state, _DEFAULTS) && layer_state_cmp(default_layer_state,_QWERTY));
-
-
-	rgblight_set_layer_state(1, layer_state_cmp(state, _LOWER));
-	rgblight_set_layer_state(2, layer_state_cmp(state, _RAISE));
-	/* rgblight_set_layer_state(3, layer_state_cmp(state, _ADJUST)); */
-	/* rgblight_set_layer_state(5, layer_state_cmp(state, _SWITCH)); */
-    return state;
-}
-void keyboard_post_init_user(void) {
-    // Enable the LED layers
-    rgblight_layers = my_rgb_layers;
-
-	rgblight_mode(10);// haven't found a way to set this in a more useful way
-
-}
-#endif
 
 #ifdef OLED_ENABLE
 
@@ -292,6 +170,133 @@ static void render_logo(void) {
 
     oled_write_P(qmk_logo, false);
 }
+
+
+/* KEYBOARD PET START */
+/* https://github.com/HellSingCoder/qmk_firmware/tree/master/keyboards/sofle/keymaps/helltm */
+
+/* settings */
+#    define MIN_WALK_SPEED      10
+#    define MIN_RUN_SPEED       40
+
+/* advanced settings */
+#    define ANIM_FRAME_DURATION 200  // how long each frame lasts in ms
+#    define ANIM_SIZE           96   // number of bytes in array. If you change sprites, minimize for adequate firmware size. max is 1024
+
+/* timers */
+uint32_t anim_timer = 0;
+
+/* current frame */
+uint8_t current_frame = 0;
+
+/* status variables */
+int   current_wpm = 0;
+led_t led_usb_state;
+
+bool isSneaking = false;
+bool isJumping  = false;
+bool showedJump = true;
+
+/* logic */
+static void render_luna(int LUNA_X, int LUNA_Y) {
+    /* Sit */
+    static const char PROGMEM sit[2][ANIM_SIZE] = {/* 'sit1', 32x22px */
+                                                   {
+                                                       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x1c, 0x02, 0x05, 0x02, 0x24, 0x04, 0x04, 0x02, 0xa9, 0x1e, 0xe0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x10, 0x08, 0x68, 0x10, 0x08, 0x04, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x06, 0x82, 0x7c, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x0c, 0x10, 0x10, 0x20, 0x20, 0x20, 0x28, 0x3e, 0x1c, 0x20, 0x20, 0x3e, 0x0f, 0x11, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                   },
+
+                                                   /* 'sit2', 32x22px */
+                                                   {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x1c, 0x02, 0x05, 0x02, 0x24, 0x04, 0x04, 0x02, 0xa9, 0x1e, 0xe0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x90, 0x08, 0x18, 0x60, 0x10, 0x08, 0x04, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x0e, 0x82, 0x7c, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x0c, 0x10, 0x10, 0x20, 0x20, 0x20, 0x28, 0x3e, 0x1c, 0x20, 0x20, 0x3e, 0x0f, 0x11, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
+
+    /* Walk */
+    static const char PROGMEM walk[2][ANIM_SIZE] = {/* 'walk1', 32x22px */
+                                                    {
+                                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x20, 0x10, 0x90, 0x90, 0x90, 0xa0, 0xc0, 0x80, 0x80, 0x80, 0x70, 0x08, 0x14, 0x08, 0x90, 0x10, 0x10, 0x08, 0xa4, 0x78, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x08, 0xfc, 0x01, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x18, 0xea, 0x10, 0x0f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x1c, 0x20, 0x20, 0x3c, 0x0f, 0x11, 0x1f, 0x03, 0x06, 0x18, 0x20, 0x20, 0x3c, 0x0c, 0x12, 0x1e, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    },
+
+                                                    /* 'walk2', 32x22px */
+                                                    {
+                                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x20, 0x20, 0x20, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x10, 0x28, 0x10, 0x20, 0x20, 0x20, 0x10, 0x48, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1f, 0x20, 0xf8, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x03, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x10, 0x30, 0xd5, 0x20, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3f, 0x20, 0x30, 0x0c, 0x02, 0x05, 0x09, 0x12, 0x1e, 0x02, 0x1c, 0x14, 0x08, 0x10, 0x20, 0x2c, 0x32, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    }};
+
+    /* Run */
+    static const char PROGMEM run[2][ANIM_SIZE] = {/* 'run1', 32x22px */
+                                                   {
+                                                       0x00, 0x00, 0x00, 0x00, 0xe0, 0x10, 0x08, 0x08, 0xc8, 0xb0, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x40, 0x40, 0x3c, 0x14, 0x04, 0x08, 0x90, 0x18, 0x04, 0x08, 0xb0, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0xc4, 0xa4, 0xfc, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc8, 0x58, 0x28, 0x2a, 0x10, 0x0f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0e, 0x09, 0x04, 0x04, 0x04, 0x04, 0x02, 0x03, 0x02, 0x01, 0x01, 0x02, 0x02, 0x04, 0x08, 0x10, 0x26, 0x2b, 0x32, 0x04, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                   },
+
+                                                   /* 'run2', 32x22px */
+                                                   {
+                                                       0x00, 0x00, 0x00, 0xe0, 0x10, 0x10, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x78, 0x28, 0x08, 0x10, 0x20, 0x30, 0x08, 0x10, 0x20, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x04, 0x08, 0x10, 0x11, 0xf9, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x10, 0xb0, 0x50, 0x55, 0x20, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x0c, 0x10, 0x20, 0x28, 0x37, 0x02, 0x1e, 0x20, 0x20, 0x18, 0x0c, 0x14, 0x1e, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                   }};
+
+    /* Sneak */
+    static const char PROGMEM sneak[2][ANIM_SIZE] = {/* 'sneak1', 32x22px */
+                                                    {
+                                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0x40, 0x40, 0x80, 0x00, 0x80, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1e, 0x21, 0xf0, 0x04, 0x02, 0x02, 0x02, 0x02, 0x03, 0x02, 0x02, 0x04, 0x04, 0x04, 0x03, 0x01, 0x00, 0x00, 0x09, 0x01, 0x80, 0x80, 0xab, 0x04, 0xf8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x1c, 0x20, 0x20, 0x3c, 0x0f, 0x11, 0x1f, 0x02, 0x06, 0x18, 0x20, 0x20, 0x38, 0x08, 0x10, 0x18, 0x04, 0x04, 0x02, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00,
+                                                  },
+
+                                                  /* 'sneak2', 32x22px */
+                                                  {
+                                                      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0xa0, 0x20, 0x40, 0x80, 0xc0, 0x20, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3e, 0x41, 0xf0, 0x04, 0x02, 0x02, 0x02, 0x03, 0x02, 0x02, 0x02, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00, 0x00, 0x04, 0x00, 0x40, 0x40, 0x55, 0x82, 0x7c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3f, 0x20, 0x30, 0x0c, 0x02, 0x05, 0x09, 0x12, 0x1e, 0x04, 0x18, 0x10, 0x08, 0x10, 0x20, 0x28, 0x34, 0x06, 0x02, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                  }};
+
+    /* animation */
+    void animate_luna(void) {
+        /* jump */
+        if (isJumping || !showedJump) {
+            /* clear */
+            oled_set_cursor(LUNA_X, LUNA_Y + 2);
+            oled_write("     ", false);
+
+            oled_set_cursor(LUNA_X, LUNA_Y - 1);
+
+            showedJump = true;
+        } else {
+            /* clear */
+            oled_set_cursor(LUNA_X, LUNA_Y - 1);
+            oled_write("     ", false);
+
+            oled_set_cursor(LUNA_X, LUNA_Y);
+        }
+
+        /* switch frame */
+        current_frame = (current_frame + 1) % 2;
+
+        /* current status */
+        if (isSneaking) {
+            oled_write_raw_P(sneak[current_frame], ANIM_SIZE);
+
+        } else if (current_wpm <= MIN_WALK_SPEED) {
+            oled_write_raw_P(sit[current_frame], ANIM_SIZE);
+
+        } else if (current_wpm <= MIN_RUN_SPEED) {
+            oled_write_raw_P(walk[current_frame], ANIM_SIZE);
+
+        } else {
+            oled_write_raw_P(run[current_frame], ANIM_SIZE);
+        }
+    }
+
+#    if OLED_TIMEOUT > 0
+    /* the animation prevents the normal timeout from occuring */
+    if (last_input_activity_elapsed() > OLED_TIMEOUT) {
+        oled_off();
+        return;
+    } else {
+        oled_on();
+    }
+#    endif
+
+    /* animation timer */
+    if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
+        anim_timer = timer_read32();
+        animate_luna();
+    }
+}
+
+/* KEYBOARD PET END */
+
 
 static void print_status_narrow(void) {
     // Print current mode
@@ -311,26 +316,26 @@ static void print_status_narrow(void) {
     }
     oled_write_P(PSTR("\n\n"), false);
     // Print current layer
-    oled_write_ln_P(PSTR("LAYER"), false);
+    oled_write_ln_P(PSTR("Layer"), false);
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Base\n"), false);
+            oled_write_P(PSTR("BASE\n"), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("Raise"), false);
+            oled_write_P(PSTR("RAISE"), false);
             break;
         case _LOWER:
-            oled_write_P(PSTR("Lower"), false);
+            oled_write_P(PSTR("LOWER"), false);
             break;
-        /* case _ADJUST: */
-        /*     oled_write_P(PSTR("Adj\n"), false); */
-        /*     break; */
-        /* case _SWITCH: */
-        /*     oled_write_P(PSTR("Swit\n"), false); */
-        /*     break; */
         default:
-            oled_write_ln_P(PSTR("Undef"), false);
+            oled_write_ln_P(PSTR("UNDEF"), false);
     }
+
+    /* KEYBOARD PET RENDER START */
+
+    render_luna(0, 13);
+
+    /* KEYBOARD PET RENDER END */
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -341,6 +346,13 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 bool oled_task_user(void) {
+    /* KEYBOARD PET VARIABLES START */
+
+    current_wpm   = get_current_wpm();
+    led_usb_state = host_keyboard_led_state();
+
+    /* KEYBOARD PET VARIABLES END */
+
     if (is_keyboard_master()) {
         print_status_narrow();
     } else {
@@ -361,28 +373,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_LOWER:
             if (record->event.pressed) {
                 layer_on(_LOWER);
-                /* update_tri_layer(_LOWER, _RAISE, _ADJUST); */
             } else {
                 layer_off(_LOWER);
-                /* update_tri_layer(_LOWER, _RAISE, _ADJUST); */
             }
             return false;
         case KC_RAISE:
             if (record->event.pressed) {
                 layer_on(_RAISE);
-            /*     update_tri_layer(_LOWER, _RAISE, _ADJUST); */
             } else {
                 layer_off(_RAISE);
-                /* update_tri_layer(_LOWER, _RAISE, _ADJUST); */
             }
             return false;
-        /* case KC_ADJUST: */
-        /*     if (record->event.pressed) { */
-        /*         layer_on(_ADJUST); */
-        /*     } else { */
-        /*         layer_off(_ADJUST); */
-        /*     } */
-        /*     return false; */
         case KC_D_MUTE:
             if (record->event.pressed) {
                 register_mods(mod_config(MOD_MEH));
@@ -391,6 +392,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_mods(mod_config(MOD_MEH));
                 unregister_code(KC_UP);
             }
+
+        /* KEYBOARD PET STATUS START */
+
+        case KC_LCTL:
+        case KC_RCTL:
+            if (record->event.pressed) {
+                isSneaking = true;
+            } else {
+                isSneaking = false;
+            }
+            break;
+        case KC_SPC:
+            if (record->event.pressed) {
+                isJumping  = true;
+                showedJump = false;
+            } else {
+                isJumping = false;
+            }
+            break;
+
+            /* KEYBOARD PET STATUS END */
     }
     return true;
 }
@@ -403,31 +425,27 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLU);
         } else {
             tap_code(KC_VOLD);
-        }
-		} else if (index == 1) {
+		}
+     }
+     else if (index == 1) {
 			switch (get_highest_layer(layer_state)) {
 				case _QWERTY:
 					if (clockwise) {
-						tap_code(KC_PGDOWN);
+						tap_code(KC_MPRV);
 					} else {
-						tap_code(KC_PGUP);
+						tap_code(KC_MNXT);
 					}
 				break;
-			case _RAISE:
-			case _LOWER:
-					if (clockwise) {
-						tap_code(KC_DOWN);
-					} else {
-						tap_code(KC_UP);
-					}
-				break;
-			default:
-					if (clockwise) {
-						tap_code(KC_WH_D);
-					} else {
-						tap_code(KC_WH_U);
-					}
-				break;
+			/* case _RAISE: */
+			/* case _LOWER: */
+				/* break; */
+			/* default: */
+			/* 		if (clockwise) { */
+			/* 			tap_code(KC_WH_D); */
+			/* 		} else { */
+			/* 			tap_code(KC_WH_U); */
+			/* 		} */
+			/* 	break; */
 		}
     }
     return true;
