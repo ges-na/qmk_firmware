@@ -21,42 +21,42 @@
 
 #define INDICATOR_BRIGHTNESS 30
 
-#define HSV_OVERRIDE_HELP(h, s, v, Override) h, s , Override
-#define HSV_OVERRIDE(hsv, Override) HSV_OVERRIDE_HELP(hsv,Override)
-
-// Light combinations
-#define SET_INDICATORS(hsv) \
-	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
-    {35+0, 1, hsv}
-#define SET_UNDERGLOW(hsv) \
-	{1, 6, hsv}, \
-    {35+1, 6,hsv}
-#define SET_NUMROW(hsv) \
-	{10, 2, hsv}, \
-		{20, 2, hsv}, \
-		{30, 2, hsv}, \
-	  {35+ 10, 2, hsv}, \
-	  {35+ 20, 2, hsv}, \
-	  {35+ 30, 2, hsv}
-#define SET_INNER_COL(hsv)	\
-	{33, 4, hsv}, \
-	  {35+ 33, 4, hsv}
-
-#define SET_OUTER_COL(hsv) \
-	{7, 4, hsv}, \
-	  {35+ 7, 4, hsv}
-#define SET_THUMB_CLUSTER(hsv) 	\
-	{25, 2, hsv}, \
-	  {35+ 25, 2, hsv}
-#define SET_LAYER_ID(hsv) 	\
-	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
-    {35+0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
-		{1, 6, hsv}, \
-    {35+1, 6, hsv}, \
-		{7, 4, hsv}, \
-	  {35+ 7, 4, hsv}, \
-		{25, 2, hsv}, \
-	  {35+ 25, 2, hsv}
+/* #define HSV_OVERRIDE_HELP(h, s, v, Override) h, s , Override */
+/* #define HSV_OVERRIDE(hsv, Override) HSV_OVERRIDE_HELP(hsv,Override) */
+/**/
+/* // Light combinations */
+/* #define SET_INDICATORS(hsv) \ */
+/* 	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \ */
+/*     {35+0, 1, hsv} */
+/* #define SET_UNDERGLOW(hsv) \ */
+/* 	{1, 6, hsv}, \ */
+/*     {35+1, 6,hsv} */
+/* #define SET_NUMROW(hsv) \ */
+/* 	{10, 2, hsv}, \ */
+/* 		{20, 2, hsv}, \ */
+/* 		{30, 2, hsv}, \ */
+/* 	  {35+ 10, 2, hsv}, \ */
+/* 	  {35+ 20, 2, hsv}, \ */
+/* 	  {35+ 30, 2, hsv} */
+/* #define SET_INNER_COL(hsv)	\ */
+/* 	{33, 4, hsv}, \ */
+/* 	  {35+ 33, 4, hsv} */
+/**/
+/* #define SET_OUTER_COL(hsv) \ */
+/* 	{7, 4, hsv}, \ */
+/* 	  {35+ 7, 4, hsv} */
+/* #define SET_THUMB_CLUSTER(hsv) 	\ */
+/* 	{25, 2, hsv}, \ */
+/* 	  {35+ 25, 2, hsv} */
+/* #define SET_LAYER_ID(hsv) 	\ */
+/* 	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \ */
+/*     {35+0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \ */
+/* 		{1, 6, hsv}, \ */
+/*     {35+1, 6, hsv}, \ */
+/* 		{7, 4, hsv}, \ */
+/* 	  {35+ 7, 4, hsv}, \ */
+/* 		{25, 2, hsv}, \ */
+/* 	  {35+ 25, 2, hsv} */
 
 
 enum sofle_layers {
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | LShift|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------| MUTE  |    | PRSCN|------+------+------+------+------+------|
+ * |------+------+------+------+------+------| MUTE  |    |Play/Pause|------+------+------+------+------+------|
  * | LCtrl|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |LShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      | MENU | LAlt | LOWER| / ENTER /       \ SPACE\  | RAISE| BKSP | RCTRL| RAlt |
@@ -97,15 +97,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   KC_LSFT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,    KC_PSCR,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
+  KC_LCTL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,    KC_MPLY,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 XXXXXXX, KC_LGUI, KC_LALT, KC_LOWER, KC_ENT,    KC_SPC,  KC_RAISE,  KC_BSPC, KC_RCTRL, KC_RALT
+                 XXXXXXX, KC_LGUI, KC_LALT, KC_LOWER, KC_ENT,    KC_SPC,  KC_RAISE,  KC_BSPC, KC_RCTL, KC_RALT
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |  ~   |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
+ * |  ~   |  F1  |  F2  |  F3  |  F4  |  F5  |                    | F6  |  F7  |  F8  |  F9  | F10  | F11  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |  `   | ---- | ---- | ---- | ---- | ---- |                    | Home | End  | PgUp | PgDn | ---- | F12  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  XXXXXXX, RGB_TOG, RGB_MOD, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_NLCK, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX,
+  XXXXXXX, RGB_TOG, RGB_MOD, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_NUM, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                   KC_CIRC, KC_P7,  KC_P8,   KC_P9,   KC_ASTR, XXXXXXX,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
@@ -427,28 +427,28 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLD);
 		}
      }
-     else if (index == 1) {
-			switch (get_highest_layer(layer_state)) {
-				case _QWERTY:
-					if (clockwise) {
-						tap_code(KC_MPRV);
-					} else {
-						tap_code(KC_MNXT);
-					}
-				break;
-			/* case _RAISE: */
-			/* case _LOWER: */
-				/* break; */
-			/* default: */
-			/* 		if (clockwise) { */
-			/* 			tap_code(KC_WH_D); */
-			/* 		} else { */
-			/* 			tap_code(KC_WH_U); */
-			/* 		} */
-			/* 	break; */
+    else if (index == 1) {
+        switch (get_highest_layer(layer_state)) {
+            case _QWERTY:
+                if (clockwise) {
+                    tap_code(KC_MPRV);
+                } else {
+                    tap_code(KC_MNXT);
+                }
+                break;
+                    /* case _RAISE: */
+                    /* case _LOWER: */
+                        /* break; */
+			default:
+                if (clockwise) {
+                    tap_code(KC_WH_D);
+                } else {
+                    tap_code(KC_WH_U);
+                }
+            break;
 		}
     }
-    return true;
+    return false;
 }
 
 #endif
