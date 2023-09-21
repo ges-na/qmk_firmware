@@ -1,0 +1,1 @@
+ qmk flash -kb sofle/rev1 -km ges-na_rgb -bl dfu
