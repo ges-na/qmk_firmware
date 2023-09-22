@@ -32,6 +32,7 @@
 #define RGB_DISABLE_WHEN_USB_SUSPENDED  // turns off lights when PC is suspended
 #undef ENCODER_RESOLUTION
 #define ENCODER_RESOLUTION 2
+#define RGB_MATRIX_TIMEOUT 300000
 
 #define TAPPING_FORCE_HOLD
 #ifdef TAPPING_TERM
